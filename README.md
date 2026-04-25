@@ -2,7 +2,7 @@
 
 **Cinelexis** is an AI-powered movie information extractor that converts unstructured movie descriptions into structured JSON data using LLMs.
 
-Paste any paragraph about a movie, and Cinelexis will extract key details like title, cast, genre, director, and more — instantly.
+Paste any movie-related paragraph, and Cinelexis extracts key details like title, cast, genre, director, rating, and summary instantly.
 
 ---
 
@@ -10,10 +10,10 @@ Paste any paragraph about a movie, and Cinelexis will extract key details like t
 
 * 🧠 Extract structured movie data from raw text
 * 🎬 Supports title, year, genre, cast, director, rating, summary
-* ⚡ Powered by LLM (Mistral via LangChain)
+* ⚡ Powered by Mistral AI (via LangChain)
 * 🧾 JSON output using Pydantic schema validation
 * 💻 Interactive UI built with Streamlit
-* 🎯 Clean, minimal, and fast interface
+* 🎯 Clean and minimal interface
 
 ---
 
@@ -27,7 +27,21 @@ Paste any paragraph about a movie, and Cinelexis will extract key details like t
 
 ---
 
-## 📦 Installation
+## 📁 Project Structure
+
+```bash
+cinelexis/
+│── core.py        # Movie extraction logic (LLM + parser)
+│── UIcore.py      # Streamlit UI
+│── .env           # API key (NOT pushed to GitHub)
+│── .env.example   # Sample environment file
+│── requirements.txt
+│── README.md
+```
+
+---
+
+## ⚙️ Installation
 
 ```bash
 git clone https://github.com/your-username/cinelexis-movie-extractor.git
@@ -43,7 +57,7 @@ pip install -r requirements.txt
 Create a `.env` file in the root directory:
 
 ```env
-MISTRAL_API_KEY=your_api_key_here
+MISTRAL_API_KEY=your_actual_api_key_here
 ```
 
 ---
@@ -51,7 +65,7 @@ MISTRAL_API_KEY=your_api_key_here
 ## ▶️ Run the App
 
 ```bash
-streamlit run app.py
+streamlit run UIcore.py
 ```
 
 ---
@@ -83,42 +97,28 @@ It holds an IMDb rating of 8.8.
 
 ---
 
-## 📁 Project Structure
-
-```
-cinelexis/
-│── app.py              # Streamlit UI
-│── extractor.py        # Core extraction logic
-│── .env                # API key (not committed)
-│── requirements.txt
-│── README.md
-```
-
----
-
 ## ⚠️ Limitations
 
-* LLM output may occasionally fail strict JSON formatting
-* Accuracy depends on input paragraph quality
+* LLM output may occasionally break strict JSON format
+* Accuracy depends on input quality
 * Requires internet connection (API-based model)
 
 ---
 
-## 🔮 Future Improvements
+## 🔒 Security Note
 
-* Retry mechanism for invalid JSON
-* Batch processing support
-* Export to CSV/JSON
-* Multi-language support
-
----
-
-## 📌 Author
-
-Developed by Yug
+* Never commit your `.env` file
+* Always use `.env.example` for sharing configuration
+* Rotate API keys if exposed
 
 ---
 
-## ⭐ If you like this project
+## 👨‍💻 Author
 
-Give it a star ⭐ and feel free to contribute!
+**Yug Khatri**
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a star ⭐
